@@ -1,0 +1,82 @@
+<script>
+    {% comment %} $("#addid").click(function(){
+        var name = 'shirt';
+        var quantity= 1;
+        var currency= 'usd';
+        var amount='500';
+
+        mydata= {name:name,quantity:quantity,currency:currency,amount:amount};
+        $.ajax({
+            url: "{% url 'add_products' %} ",
+            method : "POST",
+            data: mydata,
+            dataType:"json",
+        
+            success : function (data){
+                if(data.status = 'save'){
+                    console.log("Forms data save successfully ");
+                }
+                
+            }  
+        });
+
+    }); {% endcomment %}
+
+{% comment %} 
+  $("input").on("click",".btn-id",function(){
+             
+        output1="";
+        let id = $(this).attr("data-sid") 
+        console.log(id)
+
+
+        var csrf = $("input[name='csrfmiddlewaretoken']").val();
+        mydata={ csrfmiddlewaretoken:csrf, 'name':id };
+        $.ajax({
+            url: "{% url 'mycart' %} ",
+            method : "POST",    
+            data:mydata,
+            dataType:"json",
+            success : function (data){
+            console.log(data)
+            }
+
+        });
+
+
+    }); {% endcomment %}
+    $('.hapus_krs').click(function(){
+    var formData = {
+        'id': $(this).attr('value')
+    };
+    console.log(formData);
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'mycart' %} ",
+        data: formData,
+        dataType: 'json',
+        encode: true
+    })
+    .done(function(data) {
+        console.log(data);
+    })
+    });
+
+     $('.hapus_krs1').click(function(){
+    var formData = {
+        'id': $(this).attr('value')
+    };
+    console.log(formData);
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'deletedata' %} ",
+        data: formData,
+        dataType: 'json',
+        encode: true
+    })
+    .done(function(data) {
+        console.log(data);
+    })
+    });
+    
+</script> 

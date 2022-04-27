@@ -1,0 +1,26 @@
+{% load static %} 
+
+{% block product %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+    
+ {% comment %} <img src="{% static 'images/shirt.jpeg' %}" alt="shirt for man"> {% endcomment %}
+   
+    {% comment %} <img src="{% static 'media/{{ img }}' %}" alt="connect" style="max-height:200px">   {% endcomment %}
+  {{ img }}
+ {% comment %} <li>500</li> {% endcomment %}
+
+    <input type="button" id="addid" value="add+">
+
+</body>
+</html>
+
+
+{% endblock %}
